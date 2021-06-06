@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+/*He importado una fuente de letra de GOOGLE FONTS y la añado en font-family*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+} 
+header{ /*Posición y tamaño y estilo del header*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: white;
+    box-shadow: 0 4px 25px -22px black; 
+    /* Box shadow con movimiento vertical de 4px, desvanecimiento de 25px, posicion de -22px y color negro.
+    El 0 es para que no haya movimiento horizontal */
+    z-index: 2; /*z-index para que nuestro header esté por encima de todo*/
+
+}
+
+.header-content{
+    max-width: 1200px; /*Ancho máximo para asi dejar un margen a los lados con el margin auto*/
+    margin: auto;
+    display: flex; /* Para que ponga el menu al lado del logo en vez de debajo*/
+    justify-content: space-between; /* Para que separe el menu del logo de un extremo a otro*/
+}
+
+.logo{
+    height: 80px;  /*Pongo el mismo height que el header para que así se posicione en el medio gracias a un
+                    display: flex*/
+    display: flex;
+    justify-content: center; /*Para que el navegador sepa como distribuir el espacio*/
+    align-items: center; /*Para alienarlo en el centro*/
+}   /*Estas dos últimas son las que trabajan con display: flex para que se centre el logo*/
+
+.logo h1 b{
+    color: #8E00FF;
+} /* Le damos el color a la segunda etiqueta como indique en el html*/
+
+.menu{
+    height: 80px;
+} /*Hago lo mismo que en el logo (poner el mismo height que el header) para centrar el menu y asi 
+alinearlo con el logo*/
+
+/*Ponemos height 100% para que este en la parte más alta que le permitimos*/
+.menu nav{
+    height: 100%;
+}
+
+.menu nav ul{
+    height: 100%;
+    display: flex;
+    list-style: none; /*Para quitar los puntos del menu desordenado*/
+}
+
+.menu nav ul li{
+    height: 100%;
+    margin: 0% 20px; /*Para que no tenga borde verticalmente pero que tenga un borde horizontal*/
+    display: flex; /*Hago lo mismo que en el logo para que centrar el menu*/
+    justify-content: center;
+    align-items: center;
+    position: relative; /*Ponemos el position relative para relacionarlo con la position absolute del
+                        elemento de debajo*/
+}
+
+.menu nav ul li:before{ /*Aquí quiero hacer una barrita que aparezca encima de cada opción del menú*/
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: #8E00FF;
+    position: absolute; /*Para que la barrita solo se ponga extactamente encima de cada opción
+                        relacionandose con el position relative que puse anteriormente*/
+    top: 0;
+    left: 0;   
+}
+
+.menu nav ul li a{ /*Pongo color a las opciones del menu*/
+    color: grey;
+    font-size: 18px;
+}
+.menu nav ul li a:hover{ /*Hago un hover para que cada vez que pase con el raton por una opción cambie de color*/
+    color: #9864CC;
+}
+
+.contenedor-cover{ /*Aquí voy a poner el estilo de el cuadro de la imagen de la portada*/
+    width: 100%;
+    height: 500px;
+    position: relative;
+    margin-top: 80px;
+    background-image: url(../img/godfather.jpg);
+    background-repeat: no-repeat;/*Para asegurar que la imagen no se repita cambiando
+    el tamaño de la ventana*/
+    background-size: 100% 100%; /*Para hacer la imagen responsive*/
+    background-position: center;
+}
+.contenedor-cover1{ /*Aquí voy a poner el estilo de las otras páginas*/
+    width: 100%;
+    position: relative;
+    margin-top: 80px;
+}
+
+.contenedor-cover:before{ /*Voy a poner un fondo translucido encima de la imagen*/
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(152, 100, 204, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.contenedor-info-cover{ /*Centro el texto del h3 y h4 y le doy prioridad con el z-index para
+                        que se ponga por encima*/
+    max-width: 800px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column; /*Para que aparezca el h4 debajo del h3 y no seguido*/
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative; /*Para que funcione el z-index*/
+    z-index: 1;
+}
+/*Diseño del h3 y h4*/
+
+.contenedor-info-cover h3{ 
+    font-size: 60px;
+    font-weight: 500px;
+    margin-bottom: 20px;
+}
+.contenedor-info-cover h4{
+    font-size: 20px;
+    font-weight: 300px;
+}
+.contenedor-content{ /*Diseño del artículo de presentación*/
+    width: 1200px; /*Le pongo los mismos px que le puse al header para que sea simétrico*/
+    margin: auto;
+    margin-top: 40px;
+}
+.contenedor-content1{ /*Diseño del artículo de las otras páginas*/
+    width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex; /*Aquí centro el texto, videos e imágenes*/
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+article{ /*Diseño del artículo*/
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 40px;
+    box-shadow: -10px 0 20px -30px black;
+    border-radius: 6px; /*Para que haga como una cajita que contenga el texto*/
+    position: relative;
+    overflow: hidden; /*Para que recorte el border-radius y no acabe en esquinas*/
+}
+
+article:before{ /*Barrita encima del artículo como hice encima del menu*/
+    content: '';
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #8E00FF;
+}
+
+article h1{ /*Diseño de los títulos*/
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+article h2{
+    margin-top: 20px;
+    font-weight: 250;
+    font: 30px;
+}
+
+article p{ /*Diseño del texto*/
+    margin-top: 20px;
+    font-size: 18px;
+    color:#434040;
+}
+
+article img{ /*Diseño de la imagen de presentación*/
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contenedor-content1 article img{ /*Diseño de las imágenes de la página "Reviews"*/
+    width: 50%;
+    margin-top: 20px;
+    align-items: center;
+}
+.contenedor-footer{ /*Diseño del footer*/
+    width: 100%;
+    padding: 40px 0;
+    background: #ebc5fa;
+    margin-top: 40px;
+}
+
+.contenedor-footer footer{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.contenedor-footer footer .redes-footer{ /*Diseño de la zona los iconos de redes sociales*/
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contenedor-footer footer .redes-footer .icono-redes-footer{ /*Diseño de los propios iconos*/
+    font-size: 20px;
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8E00FF;
+}
+
+.contenedor-footer footer hr{ /*Para poner una barra que separe los iconos del copyright*/
+    margin-top: 20px;
+    border: none;
+    height: 2px;
+    background: #8E00FF;
+}
+/**/
+.contenedor-footer h4{ /*Para editar el copyright*/
+    text-align: center;
+    margin-top: 40px;
+    color: #8E00FF;
+    font-weight: 500;
+}
